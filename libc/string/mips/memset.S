@@ -21,7 +21,7 @@
 # define PREFETCH_STORE_HINT PREFETCH_HINT_PREPAREFORSTORE
 #elif _LIBC
 # include <sysdep.h>
-# include <sys/regdef.h>
+# include <regdef.h>
 # include <sys/asm.h>
 # define PREFETCH_STORE_HINT PREFETCH_HINT_PREPAREFORSTORE
 #elif defined _COMPILING_NEWLIB
@@ -29,7 +29,7 @@
 # include "machine/regdef.h"
 # define PREFETCH_STORE_HINT PREFETCH_HINT_PREPAREFORSTORE
 #else
-# include <sys/regdef.h>
+# include <regdef.h>
 # include <sys/asm.h>
 #endif
 
