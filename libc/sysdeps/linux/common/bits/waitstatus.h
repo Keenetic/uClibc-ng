@@ -45,11 +45,7 @@
 #define	__WIFSIGNALED(status)	(((unsigned)((status) & 0xffff) - 1U) < 0xffU)
 
 /* Nonzero if STATUS indicates the child is stopped.  */
-#if !defined(__mips__)
 #define	__WIFSTOPPED(status)	(((status) & 0xff) == 0x7f)
-#else
-#define	__WIFSTOPPED(status)	(((status) & 0xff) == 0x7f && ((status) & 0xff00))
-#endif
 
 /* Nonzero if STATUS indicates the child continued after a stop.  We only
    define this if <bits/waitflags.h> provides the WCONTINUED flag bit.  */
