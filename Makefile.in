@@ -392,6 +392,7 @@ install_startfiles: startfiles | $(PREFIX)$(DEVEL_PREFIX)$(MULTILIB_DIR)
 install_dev: install_headers install_runtime install_startfiles $(EMPTY_LIBS) | $(PREFIX)$(DEVEL_PREFIX)$(MULTILIB_DIR)
 	-$(INSTALL) -m 644 $(top_builddir)lib/*.a $(PREFIX)$(DEVEL_PREFIX)$(MULTILIB_DIR)/
 ifeq ($(HAVE_SHARED),y)
+	-$(INSTALL) -m 644 $(top_builddir)libc/libc_so.a $(PREFIX)$(DEVEL_PREFIX)$(MULTILIB_DIR)/
 	for i in `cd $(top_builddir) && find lib/ -type l -name 'lib[a-zA-Z]*.so' | \
 	$(SED) -e 's/lib\///'` ; do \
 		$(LN) -sf $(RUNTIME_PREFIX_LIB_FROM_DEVEL_PREFIX_LIB)$$i.$(ABI_VERSION) \
